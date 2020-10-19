@@ -40,7 +40,8 @@ for (let i = 0; i < pokemonList.length; i++) {
     }
     document.write("<br/>")
 }
-console.log(pokemonList.length)
+
+//console.log(pokemonList.length)
 
 /* for (let i = 0; i < pokemonList.length; i++) {
   let size;
