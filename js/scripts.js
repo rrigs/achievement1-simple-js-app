@@ -31,12 +31,23 @@ let pokemonList = [
   },
 ];
 
-function myLoopFunction(pokemon) {
-/*   let size =" ";
-  if (pokemonList.height > 1.5) {
+pokemonList.forEach(function (pokemon) {
+  let size;
+  if (pokemon.height > 1.5) {
     size = "Wow, that's big!";
-  } */
-  document.write(pokemon.name + ' (height:' + pokemon.height + ') ' + pokemon.types + "</br>")
-}
-
-pokemonList.forEach(myLoopFunction);
+  } else {
+    size = "";
+  }
+  document.write(
+    "<p>" +
+      pokemon.name +
+      " (height:" +
+      pokemon.height +
+      ") " +
+      size +
+      "<br>" +
+      pokemon.types +
+      "</p>" +
+      "</br>"
+  );
+});
