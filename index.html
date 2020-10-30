@@ -10,7 +10,10 @@
             rel="stylesheet">
     </head>
     <body>
-        <ul class="pokemon-list"></ul>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <ul class="pokemon-list" id="myUL"></ul>
+        <script src="js/promise-polyfill.js"></script>
+        <script src="js/fetch-polyfill.js"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>
