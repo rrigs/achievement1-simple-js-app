@@ -33,7 +33,7 @@ let pokemonRepository = (function () {
     li.classList.add("list-group-item");
 
     button.innerText = pokemon.name;
-    button.classList.add("btn-danger");
+    button.classList.add("btn", "btn-danger", "btn-lg");
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#exampleModal");
 
