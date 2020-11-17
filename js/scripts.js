@@ -45,22 +45,27 @@ let pokemonRepository = (function () {
       let row = $(".row");
 
       let card = $(
-        '<div class="card mt-5" style="width: 18rem; margin:13px;"></div>'
+        '<div class="card mt-3" style="width: 15rem; margin:13px;"></div>'
       );
-      let image = $('<img class="card-img-top mx-auto" style="width: 35%;" alt="...">');
+      let image = $(
+        '<img class="card-img-top mx-auto" style="width: 35%;" alt="...">'
+      );
       let title = $('<h5 class="card-title">' + pokemon.name + "</h5>");
-      image.attr("src", pokemon.imageUrlAnimated);
+      image.attr("src", pokemon.imageCard);
       let body = $('<div class="card-body" style="text-align: center;"></div>');
+      let footer = $(
+        '<div class="card-footer bg-transparent border-info"></div>'
+      );
       let button = $(
-        '<button type="button" class="btn" style="background-color: #d88780; color: white" data-toggle="modal" data-target="#pokemonModal">See profile</button>'
+        '<button type="button" class="btn" style="background-color: #A30000; color: white" data-toggle="modal" data-target="#pokemonModal">See Profile</button>'
       );
 
-      //append
       row.append(card);
       card.append(image);
       card.append(body);
       body.append(title);
-      body.append(button);
+      body.append(footer);
+      footer.append(button);
 
       button.on("click", function (event) {
         showDetails(pokemon);
@@ -138,11 +143,11 @@ let pokemonRepository = (function () {
       '<h4 style="background-color:#d88780; padding: 5px; color: white;">Profile</h4>'
     );
     let pokemonHeight = $(
-      "<p>" + "<strong>Height</strong>: " + pokemon.height + '"' + "</p>"
+      "<p>" + "<strong>Height</strong>: " + pokemon.height + "</p>"
     );
     // //creating element for type in modal content
     let pokemonTypes = $(
-      "<p>" + "<strong>Type</strong>: " + pokemon.types + "</p>"
+      "<p>" + "<strong>Types</strong>: " + pokemon.types + "</p>"
     );
     // //creating element for abilities in modal content
     let pokemonAbilities = $(
@@ -197,7 +202,7 @@ let pokemonRepository = (function () {
   //     hideModal();
   //   }
   // });
-  
+
   // modalContainer.addEventListener("click", (e) => {
   //   let target = e.target;
   //   if (target === modalContainer) {
@@ -207,42 +212,47 @@ let pokemonRepository = (function () {
 
   //loads pokemon API
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl: item.url
-        };
-        add(pokemon);
+    return fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
       });
-    }).catch(function (e) {
-      console.error(e);
-    })
   }
 
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      item.imageUrl = details.sprites.other.dream_world.front_default;
-      item.imageUrlAnimated = details.sprites.versions['generation-v']['black-white'].animated.front_default;
-      item.height = details.height;
-      item.types = [];
-      details.types.forEach(function (itemType) {
-        item.types.push(itemType.type.name)
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
       })
+      .then(function (details) {
+        item.imageCard = details.sprites.other.dream_world.front_default;
+        item.imageUrl = details.sprites.other["official-artwork"].front_default;
+        item.height = details.height;
+        item.types = [];
+        details.types.forEach(function (itemType) {
+          item.types.push(itemType.type.name);
+        });
 
-      item.abilities = [];
-      details.abilities.forEach(function (itemAbility) {
-        item.abilities.push(itemAbility.ability.name)
+        item.abilities = [];
+        details.abilities.forEach(function (itemAbility) {
+          item.abilities.push(itemAbility.ability.name);
+        });
       })
-
-    }).catch(function (e) {
-      console.error(e);
-    });
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
   return {
@@ -284,4 +294,4 @@ function search() {
       card[i].style.display = "none";
     }
   }
-} 
+}

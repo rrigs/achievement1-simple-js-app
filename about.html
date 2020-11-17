@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pokédex</title>
-        <link rel="stylesheet"
+        <link
+            rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous">
-        <link href="css/styles.css" rel="stylesheet" type="text/css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-            rel="stylesheet">
+            crossorigin="anonymous"
+            />
+        <link href="dist/styles.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <nav
+            class="navbar navbar-expand-lg navbar-dark"
+            style="background-color: #660000">
             <a class="navbar-brand" href="#">Navigation</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a><span
+                        <a class="nav-link" href="about.html">About<span
                                 class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="https://github.com/rrigs/pokedex-app"
+                            target="_blank">Source Code</a>
+                    </li>
                 </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input
+                        id="myInput"
+                        onkeyup="search()"
+                        class="form-control mr-sm-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                        />
+                </form>
             </div>
         </nav>
-        <div class="container"><p class="lead">This is an example "about" page.</p></div>
+        <p class="h1">
+            About
+        </p>
+        <div class="container">
+            <p class="h4">
+                Hello! Thanks for checking out my Pokédex application that I
+                created
+                as part of my Careerfoundry web development course. This
+                particular
+                project focused mainly on using JavaScript to load data from an
+                external
+                API, as well as implementing the UI framework Bootstrap on some
+                elements
+                to create a clean-looking, user-friendly interface. Enjoy!
+            </p>
+        </div>
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>

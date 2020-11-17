@@ -3,8 +3,22 @@ body {
     text-align: center;
   }
 
-  .container {
-    margin-top: 100px;
+  .title {
+    font-family: 'Sigmar One', cursive;
+    font-size: 50px;
+    margin-top: 15px;
+  }
+
+  #myInput {
+    background-image: url('/img/searchicon.png');
+    background-position: 10px 1px;
+    background-repeat: no-repeat;
+    background-color: white;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 20px 12px 40px;
+    border: 3px solid black;
+    margin-bottom: 12px;
   }
 
 /*   .pokemon-button {
@@ -33,21 +47,9 @@ body {
       list-style-type: none;
   } */
 
-  * {
+  /* * {
     box-sizing: border-box;
-  }
-  
-  #myInput {
-    background-image: url('/img/searchicon.png');
-    background-position: 10px 7px;
-    background-repeat: no-repeat;
-    background-color: white;
-    width: 65%;
-    font-size: 14px;
-    padding: 12px 20px 12px 40px;
-    border: 3px solid black;
-    margin-bottom: 12px;
-  }
+  } */
   
 /*   #myUL {
     list-style-type: none;
